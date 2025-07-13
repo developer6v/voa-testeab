@@ -30,7 +30,6 @@ function testeAB() {
 }
 
 document.addEventListener("DOMContentLoaded", function(){
-    alert("chamou a função");
     testeAB(); 
 
 })

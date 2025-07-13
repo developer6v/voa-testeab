@@ -1,7 +1,7 @@
 function testeAB() {
-    const pageA = "https://fabiocostaonline.com/workshop-voa";
-    const pageB = "https://fabiocostaonline.com/workshop-voa-b";
-    const pageC = "https://fabiocostaonline.com/workshop-voa-c";
+    const pageA = "https://fabiocostaonline.com/voa-a";
+    const pageB = "https://fabiocostaonline.com/voa-b";
+    const pageC = "https://fabiocostaonline.com/voa-c";
 
     const urlParams = new URLSearchParams(window.location.search);
     const utmParams = {};

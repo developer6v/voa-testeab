@@ -214,8 +214,7 @@ for (const [utmKey, fieldName] of Object.entries(utms)) {
 
     fetch("https://fabiocostaonline.activehosted.com/proc.php", {
         method: "POST",
-        body: new FormData(document.getElementById("_form_1_")),
-        mode: "cors"
+        body: new FormData(document.getElementById("_form_1_"))
     }).then(() => {
         window.location.href = rastreio;
     });

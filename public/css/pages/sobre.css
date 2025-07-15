@@ -1,0 +1,71 @@
+.quem-sou-eu {
+  background-color: #000;
+  color: #fff;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+.quem-sou-eu .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+  
+}
+
+.quem-sou-texto {
+  flex: 1;
+  max-width: 600px;
+}
+
+.quem-sou-texto h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.quem-sou-texto .subtitulo {
+  font-size: 1rem;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.quem-sou-texto p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.quem-sou-texto strong {
+  color: #00d07e;
+}
+
+.quem-sou-imagem {
+  flex: 1;
+  text-align: center;
+  max-width: 500px;
+}
+
+.quem-sou-imagem img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+
+@media screen and (max-width: 767px) {
+  .quem-sou-imagem img {
+    display: none;
+  }
+
+  .quem-sou-texto {
+    text-align: center;
+    flex: auto;
+    max-width: 600px;
+  }
+
+  .porquebarato-wrapper {
+    margin-top: 0;
+  }
+}

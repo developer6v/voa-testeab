@@ -1,0 +1,76 @@
+.lote_valor_pricing {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+
+.benefit-pricing_div_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pricing_div_right {
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.pricing_div_left p, .pricing_div_left span{
+    color: #ccc;
+    text-align: end;
+}
+
+
+.pricing_div_list {
+    list-style: none;
+}
+
+.pricing_div_list li {
+    color: #ccc;
+}
+.pricing_div_left p {
+    color: #ccc;
+    font-size: 14px;
+    width: 80%;
+}
+
+.investimentodata {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.pricing_div_left span{
+    color: #ccc;
+    text-align: end;
+}
+
+.pricing_div_left {
+    flex-direction: column;
+    display: flex;
+    align-items: end;
+    justify-content: end;
+} 
+
+
+@media screen and (max-width: 767px) {
+    .pricing_div_left img {
+        display: none;
+    }
+    .pricing_div_left p {
+        width: 100%;
+        text-align: start;
+    }
+
+    .pricing_div_right {
+        margin-top: 15px;
+    }
+
+    .pricing_div_left {
+        margin-bottom: 15px;
+    }
+}

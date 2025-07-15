@@ -1,0 +1,129 @@
+.faq-section {
+  padding: 80px 40px;
+  font-family: 'Helvetica Neue', sans-serif;
+  background: #ffffff; /* fundo branco */
+  color: #111; /* texto padrão escuro */
+}
+
+.faq-container {
+  display: flex;
+  gap: 60px;
+  max-width: 1200px;
+  margin: auto;
+  flex-wrap: nowrap;
+  margin-bottom: 20px;
+}
+
+.faq-image {
+  flex: 0 0 40%;
+}
+
+.faq-image img {
+  min-height: 500px;
+  border-radius: 25px;
+  object-fit: cover;
+}
+
+.faq-content {
+  flex: 1;
+  min-width: 300px;
+}
+
+.faq-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid #00c67c;
+  color: #00c67c;
+  margin-bottom: 10px;
+}
+
+.faq-content h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #111;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  transition: all 0.3s ease;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 20px 20px 20px 40px;
+  background: none;
+  border: none;
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  color: #111;
+  position: relative;
+  transition: background 0.3s;
+}
+
+.faq-question:hover {
+  background-color: #f1f1f1;
+}
+
+.faq-question::before {
+  content: "+";
+  position: absolute;
+  left: 15px;
+  font-size: 1.2rem;
+  color: #00c67c;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question::before {
+  content: "×";
+  transform: rotate(90deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 20px;
+  opacity: 0;
+  transition: all 0.4s ease;
+  color: #333;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 800px;
+  padding-bottom: 20px;
+  opacity: 1;
+}
+/* 1) Alinha as duas colunas pelo topo, evitando re­posicionamento */
+.faq-container {
+  align-items: flex-start;   /* em vez de center */
+}
+
+/* 2) Mantém a imagem sempre no topo da sua coluna */
+.faq-image {
+  align-self: flex-start;    /* garante que ela não tente se centrar */
+}
+
+/* 3) (Opcional) Se quiser a foto “grudada” enquanto rola o FAQ */
+@media (min-width: 768px) {      /* ativa só em telas maiores */
+  .faq-image {
+    top: 40px;                  /* ajusta a distância do topo conforme seu layout */
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .faq-image {
+    display: none;
+  }
+
+  .faq-content h2 {
+    text-align: center;
+  }
+}

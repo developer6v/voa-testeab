@@ -20,7 +20,7 @@ function testeAB() {
     }
 
     function redirect() {
-        const pages = [pageA, pageB, pageC];
+        const pages = [pageA];
         const randomIndex = Math.floor(Math.random() * pages.length);
         window.location.href = createUrl(pages[randomIndex]);
     }

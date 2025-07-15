@@ -215,13 +215,10 @@ for (const [utmKey, fieldName] of Object.entries(utms)) {
     fetch("https://fabiocostaonline.activehosted.com/proc.php", {
         method: "POST",
         body: new FormData(document.getElementById("_form_1_")),
-        mode: "no-cors"
+        mode: "cors"
+    }).then(() => {
+        window.location.href = rastreio;
     });
-
-
-    window.location.href = rastreio;
-
-    return false;
   }
 });
 

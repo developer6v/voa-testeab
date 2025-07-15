@@ -60,6 +60,7 @@ if ($agora < $fim_l0) {
 } elseif ($agora < $fim_l3) {
     $lote = 3;
     $valor = "R$ 37,00";
+    $url = "https://pay.hotmart.com/G100576922A?off=hq2o6eev&checkoutMode=10";
     $inicioTimestamp = $inicio_l3;
     $fimTimestamp = $fim_l3;
 } elseif ($agora < $fim_l4) {

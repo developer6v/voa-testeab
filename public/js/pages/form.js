@@ -216,12 +216,10 @@ for (const [utmKey, fieldName] of Object.entries(utms)) {
         method: "POST",
         body: new FormData(document.getElementById("_form_1_")),
         mode: "no-cors"
+
+    }).then(() => {
+        window.location.href = rastreio;
     });
-
-
-    window.location.href = rastreio;
-
-    return false;
   }
 });
 

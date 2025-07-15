@@ -74,7 +74,7 @@ window._show_pc_confirmation = function(id, header, detail, show, email) {
     var hideButton = document.getElementById('hideButton');
     // Add event listener to the button
     hideButton.addEventListener('click', function() {
-        var submitButton = document.querySelector('#_form_31_submit');
+        var submitButton = document.querySelector('#_form_1_submit');
         submitButton.disabled = false;
         submitButton.classList.remove('processing');
         var mp = document.querySelector('input[name="mp"]');
@@ -97,7 +97,7 @@ window._show_pc_confirmation = function(id, header, detail, show, email) {
 };
 window._load_script = function(url, callback, isSubmit) {
     var head = document.querySelector('head'), script = document.createElement('script'), r = false;
-    var submitButton = document.querySelector('#_form_31_submit');
+    var submitButton = document.querySelector('#_form_1_submit');
     script.charset = 'utf-8';
     script.src = url;
     if (callback) {
@@ -111,9 +111,9 @@ window._load_script = function(url, callback, isSubmit) {
     script.onerror = function() {
         if (isSubmit) {
             if (script.src.length > 10000) {
-                _show_error("31", "Desculpe, seu envio falhou. Deixe suas respostas mais curtas e tente novamente.");
+                _show_error("1", "Desculpe, seu envio falhou. Deixe suas respostas mais curtas e tente novamente.");
             } else {
-                _show_error("31", "Desculpe, seu envio falhou. Tente novamente.");
+                _show_error("1", "Desculpe, seu envio falhou. Tente novamente.");
             }
             submitButton.disabled = false;
             submitButton.classList.remove('processing');
@@ -148,7 +148,7 @@ window._load_script = function(url, callback, isSubmit) {
         }
     }
     var _removed = false;
-        var form_to_submit = document.getElementById('_form_31_');
+        var form_to_submit = document.getElementById('_form_1_');
     var allInputs = form_to_submit.querySelectorAll('input, select, textarea'), tooltips = [], submitted = false;
 
     var getUrlParam = function(name) {
@@ -474,10 +474,10 @@ window._load_script = function(url, callback, isSubmit) {
                 form_to_submit.querySelector('input[name="phone"]').value = iti.getNumber();
             }
             // use this trick to get the submit button & disable it using plain javascript
-            var submitButton = e.target.querySelector('#_form_31_submit');
+            var submitButton = e.target.querySelector('#_form_1_submit');
             submitButton.disabled = true;
             submitButton.classList.add('processing');
-                    var serialized = _form_serialize(document.getElementById('_form_31_')).replace(/%0A/g, '\\n');
+                    var serialized = _form_serialize(document.getElementById('_form_1_')).replace(/%0A/g, '\\n');
             var err = form_to_submit.querySelector('._form_error');
             err ? err.parentNode.removeChild(err) : false;
             async function submitForm() {
@@ -508,7 +508,7 @@ window._load_script = function(url, callback, isSubmit) {
                 submitForm().then((data) => {
                     eval(data.js);
                 }).catch(() => {
-                    _show_error("31", "Desculpe, seu envio falhou. Tente novamente.");
+                    _show_error("1", "Desculpe, seu envio falhou. Tente novamente.");
                 });
             } else {
                 _load_script('https://fabiocostaonline.activehosted.com/proc.php?' + serialized + '&jsonp=true', null, true);

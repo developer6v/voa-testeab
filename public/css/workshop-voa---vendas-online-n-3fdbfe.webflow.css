@@ -709,8 +709,12 @@ figcaption {
   color: white;
   letter-spacing: -.03em;
   font-family: Inter, sans-serif;
-  font-size: 3rem;
+  font-size: 34px;
   font-weight: 600;
+}
+
+.porque2left {
+  text-align: center;
 }
 
 .white {

@@ -1,262 +1,341 @@
-.porque2right h1 {
-  font-size: 1.6rem;
-  text-align: center;
+#porque-new {
+  color: white;
+  background: linear-gradient(to bottom,  #066d3d, #179459);
 }
-
-.porque2left p {
-    font-size: 20px;
-    text-align: center;
-    font-size: 1rem;
-}
-
 
 .porque2left {
-  align-self: center;
-  display: flex;
-  justify-content: center;
+  text-align: center;
+  width: 50%;
+  margin-top: 35px;
+  margin-bottom: 35px;
 }
 
-.desktop {
-  display: block;
+.porque2right h1 {
+    font-size: 34px;
+    text-align: center;
+    margin-top: 20px;
 }
-.mobile {
-  display: none;
-}
-
-#porque-new {
-  background: linear-gradient(to bottom, #a30000, #650000);
-  color: white;
-  padding: 80px 0;
-  font-family: Arial, sans-serif;
-}
-
-.porque2div {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
-  align-items: start;
-  margin-top: 40px;
+/* Container principal */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    position: relative;
 }
 
-.porque2left p {
-
-  margin: 0;
+/* Elementos decorativos de fundo */
+.container::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 50%;
+    z-index: 0;
 }
 
-.porque2right {
-  display: flex;
-  flex-direction: column;
+.container::after {
+    content: '';
+    position: absolute;
+    bottom: 20%;
+    left: -15%;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 50%;
+    z-index: 0;
 }
 
-.right-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 12px;
-  padding: 6px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+/* Seção hero */
+.hero-section {
+    text-align: center;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 1;
 }
 
-.right-item:last-child {
-  border-bottom: none;
+.main-title {
+    font-size: clamp(32px, 5vw, 56px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 32px;
+    letter-spacing: -0.5px;
+    color: #F8F9FA;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    animation: fadeInUppq 0.8s ease-out;
 }
 
-.right-item .icon {
-  font-size: 20px;
-  color: white;
-  margin-top: 2px;
-  min-width: 20px;
+.benefits-grid {
+  margin-top: 20px;
 }
 
-.right-item p {
-  margin: 0;
-  font-size: 16px;
-  line-height: 1.5;
+.intro-text {
+    font-size: clamp(16px, 2.5vw, 20px);
+    font-weight: 400;
+    line-height: 1.6;
+    color: rgba(248, 249, 250, 0.9);
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeInUppq 0.8s ease-out 0.2s both;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-  .porque2div {
-    grid-template-columns: 1fr;
-  }
+/* Seção de benefícios */
+.benefits-section {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 80px;
 }
 
-
-#porque-new {
-  background: linear-gradient(to bottom,  #066d3d, #179459);
-  color: white;
-  padding: 80px 0;
-  font-family: Arial, sans-serif;
+.section-title {
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 60px;
+    color: #F8F9FA;
+    animation: fadeInUppq 0.8s ease-out 0.4s both;
 }
-
-.porque2div {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 40px;
-  align-items: start;
-}
-
-.porque2left h2 {
-  font-size: 32px;
-  font-weight: bold;
-  line-height: 1.3;
-  margin: 0;
-}
-
-.porque2right {
-  display: flex;
-  flex-direction: column;
-  gap: 32px;
-}
-
-.feature-box {
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-}
-
-.feature-box .icon {
-  font-size: 24px;
-  margin-top: 4px;
-}
-
-.feature-box strong {
-  font-size: 18px;
-}
-
-.feature-box div {
-  font-size: 15px;
-  line-height: 1.4;
-}
-
-/* Responsivo */
-@media (max-width: 768px) {
-  
-
-.desktop {
-  display: none;
-}
-.mobile {
-  display: block;
-}
-  .porque2div {
-    grid-template-columns: 1fr;
-  }
-  .porque2left {
-    margin-bottom: 40px;
-    display: block;
-
-  }
-  .porque2div {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 40px;
-    align-items: start;
-    margin-top: 40px;
-  }
-
-}
-
-
-
 
 .benefits-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 40px;
+    gap: 24px;
+    animation: fadeInUppq 0.8s ease-out 0.6s both;
 }
 
 .benefit-card {
-    background: white;
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    position: relative;
-    overflow: hidden;
-    align-items: center;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 32px;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
 }
 
 .benefit-card::before {
-    content: "";
+    content: attr(data-number);
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 5px;
-    background: linear-gradient(45deg, #00ff88, #51ffae);
+    top: 16px;
+    right: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.4);
+    font-family: 'Inter', monospace;
 }
 
 .benefit-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-    border-color: #00ff88;
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
-.benefit-number {
+.benefit-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F8F9FA;
+    transition: all 0.3s ease;
+}
 
-    display: inline-block;
-    width: 60px;
-    height: 60px;
-    background: linear-gradient(45deg, #00ff88, #51ffae);
-    color: white;
-    border-radius: 50%;
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 60px;
-    margin-bottom: 25px;
-    box-shadow: 0 8px 20px #4ade80;
+.benefit-card:hover .benefit-icon {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+.benefit-content {
+    flex: 1;
 }
 
 .benefit-title {
-    font-size: 1.4rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #2c3e50;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #F8F9FA;
     line-height: 1.3;
 }
 
 .benefit-description {
-    font-size: 1.1rem;
-    color: #666;
-    line-height: 1.6;
-    font-weight: 500;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(248, 249, 250, 0.8);
+    line-height: 1.5;
 }
 
-.highlight {
-    color: #2c3e50;
-    font-weight: 700;
+/* Seção CTA */
+.cta-section {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUppq 0.8s ease-out 0.8s both;
 }
 
+.cta-button {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    color: #1B5E3F;
+    border: none;
+    border-radius: 12px;
+    padding: 20px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    margin-bottom: 16px;
+    text-decoration: none;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+.cta-button svg {
+    transition: transform 0.3s ease;
+}
+
+.cta-button:hover svg {
+    transform: translateX(4px);
+}
+
+.cta-subtitle {
+    font-size: 16px;
+    color: rgba(248, 249, 250, 0.7);
+    font-weight: 400;
+}
+
+/* Animações */
+@keyframes fadeInUppq {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
 @media (max-width: 768px) {
-    .benefits-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .benefit-card {
-        padding: 30px 20px;
-    }
-
-    
-}
-
-@media screen and (max-width: 767px) {
-    
-
-
-    .cc-heading-h4 {
-    font-size: 1.6rem;
-    }
-
-    .div_itens_porque {
-        width: 100%;
+    .porque2left {
+      text-align: center;
+      width: 90%;
+      margin-top: 35px;
+      margin-bottom: 35px;
     }
     .benefit-title {
+      width: fit-content;
+      font-size: 20px;
+      font-weight: 600;
+      color: #F8F9FA;
+      line-height: 1.3;
+      text-align: center;
+      margin: 0 auto;
+      margin-bottom: 8px;
+
+  }
+    .benefit-icon {
+      margin: 0 auto;
+    }
+    .porque2right h1 {
+      font-size: 1.6rem;
+    }
+    .container {
+        padding: 40px 24px;
+    }
+    
+    .hero-section {
+        margin-bottom: 60px;
+    }
+    
+    .main-title {
+        margin-bottom: 24px;
+    }
+    
+    .section-title {
+        margin-bottom: 40px;
+    }
+    
+    .benefit-card {
+        padding: 24px;
+        flex-direction: column;
         text-align: center;
+        gap: 16px;
+    }
+    
+    .benefit-card::before {
+        top: 12px;
+        right: 16px;
+    }
+    
+    .cta-button {
+        padding: 16px 32px;
+        font-size: 16px;
+        width: 100%;
+        max-width: 320px;
+    }
+    
+    .benefits-section {
+        margin-bottom: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 32px 20px;
+    }
+    
+    .benefit-card {
+        padding: 20px;
+    }
+    
+    .main-title {
+        font-size: 28px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+}
+
+/* Melhorias de acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus states para acessibilidade */
+.cta-button:focus {
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* Suporte para temas escuros do sistema */
+@media (prefers-color-scheme: dark) {
+    .cta-button {
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
     }
 }

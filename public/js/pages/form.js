@@ -197,7 +197,7 @@ for (const [utmKey, fieldName] of Object.entries(utms)) {
 
     
     if (!url || url == "") {
-        url = "https://pay.hotmart.com/G100576922A?off=6mshjz42&checkoutMode=10&offDiscount=OFERTAESPECIAL";
+        url = "https://pay.hotmart.com/G100576922A?off=6mshjz42&checkoutMode=10";
     } 
 
     const rastreio = url +

@@ -22,7 +22,7 @@ function testeAB() {
     function redirect() {
         const pages = [pageA, pageB, pageC];
         const randomIndex = Math.floor(Math.random() * pages.length);
-        window.location.href = pages[randomIndex];
+        window.location.href = pageA;
     }
 
 

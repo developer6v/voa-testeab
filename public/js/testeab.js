@@ -1,7 +1,7 @@
 function testeAB() {
-    const pageA = "https://fabiocostaonline.com/voa-1";
-    const pageB = "https://fabiocostaonline.com/voa-2";
-    const pageC = "https://fabiocostaonline.com/voa-3";
+    const pageA = "https://fabiocostaonline.com/voa-a";
+    const pageB = "https://fabiocostaonline.com/voa-b";
+    const pageC = "https://fabiocostaonline.com/voa-c";
 
     const urlParams = new URLSearchParams(window.location.search);
     const utmParams = {};
@@ -22,7 +22,8 @@ function testeAB() {
     function redirect() {
         const pages = [pageA, pageB, pageC];
         const randomIndex = Math.floor(Math.random() * pages.length);
-        window.location.href = pageA;
+        const finalUrl = createUrl(pages[randomIndex]);
+        window.location.href = finalUrl;
     }
 
 

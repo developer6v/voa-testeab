@@ -74,6 +74,8 @@ if ($agora < $fim_l0) {
     $valor = "R$ 47,00";
     $inicioTimestamp = $inicio_l5;
     $fimTimestamp = $fim_l5;
+    $url = "https://pay.hotmart.com/X100926046N?off=mhfdjrgt&checkoutMode=10";
+
 } elseif ($agora < $fim_l6) {
     $lote = 6;
     $valor = "R$ 52,00";

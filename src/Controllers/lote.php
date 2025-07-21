@@ -81,11 +81,14 @@ if ($agora < $fim_l0) {
     $valor = "R$ 52,00";
     $inicioTimestamp = $inicio_l6;
     $fimTimestamp = $fim_l6;
+    $url = "https://pay.hotmart.com/G100576922A?off=vw3inpn0&checkoutMode=10";
+
 } else {
     $lote = 7;
     $valor = "R$ 57,00";
     $inicioTimestamp = $inicio_l7;
     $fimTimestamp = $fim_l7;
+    $url = "https://pay.hotmart.com/G100576922A?off=uy5iy5bw&checkoutMode=10";
 } 
 
 

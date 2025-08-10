@@ -16,6 +16,14 @@ if ($method === 'OPTIONS') {
   exit;
 }
 
+// ===== Config =====
+const HOTMART_TOKEN_URL = 'https://api-sec-vlc.hotmart.com/security/oauth/token';
+const HOTMART_SALES_HISTORY_URL = 'https://api-sec-vlc.hotmart.com/sales/history';
+
+// Recomendo usar variáveis de ambiente no servidor (ex: Apache/NGINX or .env)
+$CLIENT_ID = "e49b052d-cf39-43c4-bc9c-ac46b4555e69";
+$CLIENT_SECRET = "6c0f72ae-1ada-46bc-9fc4-57249d41e97f";
+$acesstoken = "ZTQ5YjA1MmQtY2YzOS00M2M0LWJjOWMtYWM0NmI0NTU1ZTY5OjZjMGY3MmFlLTFhZGEtNDZiYy05ZmM0LTU3MjQ5ZDQxZTk3Zg==";
 // Aceita GET e POST
 if ($method !== 'GET' && $method !== 'POST') {
   http_response_code(405);
@@ -105,7 +113,12 @@ try {
     'grant_type' => 'client_credentials',
     'client_id' => $CLIENT_ID,
     'client_secret' => $CLIENT_SECRET,
-  ]);
+  ],
+  
+    [
+        'Authorization: Basic ' . $acesstoken
+    ]
+);
   if ($code !== 200) {
     http_response_code(502);
     echo json_encode(['error' => 'Falha ao obter token da Hotmart', 'details' => $resp]); exit;

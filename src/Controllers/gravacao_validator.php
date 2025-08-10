@@ -14,7 +14,7 @@ $LOOKBACK_DAYS = 40; // 2 anos
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
-
+echo $_SERVER['REQUEST_METHOD'];
 // Apenas POST
 /*if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
   http_response_code(405);

@@ -3,45 +3,53 @@ declare(strict_types=1);
 
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
-// (Opcional CORS)
+// (Opcional CORS, se for chamar do front)
 header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
 header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
-// Trata preflight
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+$method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+
+// Preflight (CORS)
+if ($method === 'OPTIONS') {
   http_response_code(204);
   exit;
 }
 
-// Apenas POST
-if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+// Aceita GET e POST
+if ($method !== 'GET' && $method !== 'POST') {
   http_response_code(405);
-  echo json_encode([
-    'error' => 'Method Not Allowed',
-    'received_method' => $_SERVER['REQUEST_METHOD'] ?? null,
-    'hint' => 'Verifique se há redirecionamento 301/302. Use a URL final com HTTPS/www corretos ou configure 307/308.'
-  ]);
-  exit;
+  echo json_encode(['error' => 'Method Not Allowed', 'received_method' => $method]); exit;
 }
 
-// Lê JSON ou form
-$raw = file_get_contents('php://input') ?: '';
-$ct  = $_SERVER['CONTENT_TYPE'] ?? '';
-$input = (stripos($ct, 'application/json') !== false)
-  ? json_decode($raw, true) ?: []
-  : $_POST;
+// Captura dados do corpo/query
+$ct   = $_SERVER['CONTENT_TYPE'] ?? '';
+$raw  = file_get_contents('php://input') ?: '';
+$body = (stripos($ct, 'application/json') !== false) ? (json_decode($raw, true) ?: []) : $_POST;
+$query = $_GET;
 
+// União com prioridade para corpo (POST/JSON) sobre query (GET)
+$input = array_merge($query, $body);
+
+// Campos
 $email = isset($input['email']) ? trim((string)$input['email']) : '';
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
   http_response_code(400);
   echo json_encode(['error' => 'E-mail inválido ou ausente']); exit;
 }
 
+// product_ids pode vir como array (product_ids[]=123) ou CSV (product_ids=123,456)
 $productIds = [];
-if (isset($input['product_ids']) && is_array($input['product_ids'])) {
-  $productIds = array_values(array_filter(array_map('intval', $input['product_ids'])));
+if (isset($input['product_ids'])) {
+  if (is_array($input['product_ids'])) {
+    $productIds = array_map('intval', $input['product_ids']);
+  } else {
+    $productIds = array_map('intval', array_filter(array_map('trim', explode(',', (string)$input['product_ids']))));
+  }
 }
+
+// ------- daqui pra baixo seu código original (token + consulta Hotmart) -------
+
 // ===== Funções auxiliares =====
 function http_post_json(string $url, array $data, array $headers = []): array {
   $ch = curl_init($url);

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Compra - Hotmart</title>
+    <script src="/cashback/public/js/script.js"></script>
+    <link rel="stylesheet" href="/cashback/public/css/style.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="logo">✓</div>
+        <h1>Validação de Compra</h1>
+        <p class="subtitle">Verifique se você já adquiriu este produto na Hotmart inserindo seu email de compra abaixo.</p>
+        
+        <form id="validationForm">
+            <div class="form-group">
+                <label for="email">Email de Compra:</label>
+                <input type="email" id="email" name="email" required placeholder="Digite seu email de compra">
+            </div>
+            
+            <button type="submit" class="btn" id="submitBtn">
+                Verificar Compra
+            </button>
+            
+            <div class="error-message" id="errorMessage"></div>
+        </form>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            Verificando sua compra...
+        </div>
+        
+        <div class="security-info">
+            <span class="icon">🔒</span>
+            Seus dados estão protegidos. Utilizamos conexão segura para verificar sua compra.
+        </div>
+    </div>
+</body>
+</html>
+

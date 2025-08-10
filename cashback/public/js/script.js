@@ -29,7 +29,7 @@
                 // Fazer requisição POST para a API
                 const response = await fetch('https://script.google.com/macros/s/AKfycbzjCaODfmxJ9MfiND3vykaOuMGlle8-_iy4Fbk7mkqMLJhefiFSD6u77wLfNh2nMPW2Fg/exec', {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                     body: JSON.stringify({ email })
                 });
                 

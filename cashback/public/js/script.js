@@ -49,7 +49,7 @@
                 } else if (resultTrimmed === 'false') {
                     submitBtn.textContent = 'Compra não encontrada. Redirecionando...';
                     setTimeout(() => {
-                        window.location.href = 'fabiocostaonline.com/voa/compra-naoencontrada'; 
+                        window.location.href = 'https://fabiocostaonline.com/voa/compra-naoencontrada'; 
                     }, 1500);
                 } else {
                     throw new Error('Resposta inesperada da API: ' + result);

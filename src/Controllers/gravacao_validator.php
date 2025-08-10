@@ -16,10 +16,10 @@ header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
 
 // Apenas POST
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+/*if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
   http_response_code(405);
   echo json_encode(['error' => 'Method Not Allowed']); exit;
-}
+}*/
 
 // Captura e validação do e-mail
 $input = $_POST;

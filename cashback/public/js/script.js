@@ -47,7 +47,7 @@
                     // Aguardar um momento para mostrar feedback visual
                     submitBtn.textContent = 'Compra encontrada! Redirecionando...';
                     setTimeout(() => {
-                        window.location.href = 'https://checkout.hotmart.com/seu-link-aqui'; // Substituir pela URL real do checkout
+                        window.location.href = 'https://pay.hotmart.com/M8281500Q?checkoutMode=10&off=kb6qqz1g&offDiscount=CUPOMVOA'; // Substituir pela URL real do checkout
                     }, 1500);
                 } else if (resultTrimmed === 'false') {
                     // Compra não encontrada - redirecionar para página de não encontrado

@@ -1,37 +1,47 @@
 <?php
 declare(strict_types=1);
 
-// ===== Config =====
-const HOTMART_TOKEN_URL = 'https://api-sec-vlc.hotmart.com/security/oauth/token';
-const HOTMART_SALES_HISTORY_URL = 'https://api-sec-vlc.hotmart.com/sales/history';
-
-// Recomendo usar variáveis de ambiente no servidor (ex: Apache/NGINX or .env)
-$CLIENT_ID = "e49b052d-cf39-43c4-bc9c-ac46b4555e69";
-$CLIENT_SECRET = "6c0f72ae-1ada-46bc-9fc4-57249d41e97f";
-
-// Opcional: limite de busca retroativa (em dias) para reduzir paginação
-$LOOKBACK_DAYS = 40; // 2 anos
-
 header('Content-Type: application/json; charset=utf-8');
 header('Cache-Control: no-store');
-echo $_SERVER['REQUEST_METHOD'];
-// Apenas POST
-/*if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-  http_response_code(405);
-  echo json_encode(['error' => 'Method Not Allowed']); exit;
-}*/
+// (Opcional CORS)
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Authorization');
 
-// Captura e validação do e-mail
-$input = $_POST;
-$email = isset($input['email']) ? trim($input['email']) : '';
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-  http_response_code(400);
-  echo json_encode(['error' => 'E-mail inválido']); exit;
+// Trata preflight
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+  http_response_code(204);
+  exit;
 }
 
-// Opcional: filtrar por um ou mais productIds (enviar no POST como "product_ids[]=123&product_ids[]=456")
-$productIds = isset($input['product_ids']) && is_array($input['product_ids']) ? array_map('intval', $input['product_ids']) : [];
+// Apenas POST
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+  http_response_code(405);
+  echo json_encode([
+    'error' => 'Method Not Allowed',
+    'received_method' => $_SERVER['REQUEST_METHOD'] ?? null,
+    'hint' => 'Verifique se há redirecionamento 301/302. Use a URL final com HTTPS/www corretos ou configure 307/308.'
+  ]);
+  exit;
+}
 
+// Lê JSON ou form
+$raw = file_get_contents('php://input') ?: '';
+$ct  = $_SERVER['CONTENT_TYPE'] ?? '';
+$input = (stripos($ct, 'application/json') !== false)
+  ? json_decode($raw, true) ?: []
+  : $_POST;
+
+$email = isset($input['email']) ? trim((string)$input['email']) : '';
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  http_response_code(400);
+  echo json_encode(['error' => 'E-mail inválido ou ausente']); exit;
+}
+
+$productIds = [];
+if (isset($input['product_ids']) && is_array($input['product_ids'])) {
+  $productIds = array_values(array_filter(array_map('intval', $input['product_ids'])));
+}
 // ===== Funções auxiliares =====
 function http_post_json(string $url, array $data, array $headers = []): array {
   $ch = curl_init($url);

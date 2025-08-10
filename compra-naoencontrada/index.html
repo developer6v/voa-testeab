@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop VOA - Oportunidade Especial</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #667eea, #764ba2, #f093fb, #f5576c);
+        }
+
+        .icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 32px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .message {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 35px;
+            border-left: 5px solid #667eea;
+        }
+
+        .message h2 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .message p {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .product-name {
+            color: #667eea;
+            font-weight: 600;
+            font-style: italic;
+        }
+
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 18px 30px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(40, 167, 69, 0.4);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            color: white;
+            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 123, 255, 0.4);
+        }
+
+        .btn-icon {
+            font-size: 18px;
+        }
+
+        .offer-badge {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-block;
+            box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+        }
+
+        .contact-info {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border: 1px solid #e9ecef;
+        }
+
+        .contact-info h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .phone-number {
+            color: #667eea;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .features {
+            text-align: left;
+            margin: 25px 0;
+        }
+
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 26px;
+            }
+            
+            .subtitle {
+                font-size: 16px;
+            }
+            
+            .buttons-container {
+                gap: 12px;
+            }
+            
+            .btn {
+                padding: 16px 25px;
+                font-size: 15px;
+            }
+        }
+
+        @media (min-width: 600px) {
+            .buttons-container {
+                flex-direction: row;
+            }
+            
+            .btn {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">!</div>
+        <h1>Oops! Não Encontramos Sua Compra</h1>
+        <p class="subtitle">Mas temos uma oportunidade especial para você!</p>
+        
+        <div class="message">
+            <h2>📚 Sobre o Produto</h2>
+            <p>Não encontramos os dados da sua compra do produto:</p>
+            <p class="product-name">"1ª edição do Workshop VOA - Gravação em formato de aulas"</p>
+            <p>Mas não se preocupe! Você ainda pode adquirir o curso <strong>AMZ Hunter</strong></p>
+        </div>
+
+        <div class="offer-badge">
+            🎯 Oferta Disponível
+        </div>
+
+        <div class="buttons-container">
+            <a href="https://pay.hotmart.com/M8281500Q?off=kb6qqz1g&checkoutMode=10" 
+               class="btn btn-primary" 
+               target="_blank"
+               onclick="trackPurchaseClick()">
+                <span class="btn-icon">🛒</span>
+                Comprar Agora
+            </a>
+            
+            <a href="https://wa.me/5548986250071?text=Olá! Preciso de ajuda com o Workshop VOA. Não encontrei minha compra no sistema." 
+               class="btn btn-secondary" 
+               target="_blank"
+               onclick="trackSupportClick()">
+                <span class="btn-icon">💬</span>
+                Falar com Suporte
+            </a>
+        </div>
+
+        <div class="contact-info">
+            <h3>📞 Suporte Direto</h3>
+            <p>WhatsApp: <span class="phone-number">+55 48 9862-5071</span></p>
+            <p style="font-size: 14px; color: #666; margin-top: 8px;">
+                Horário de atendimento: Segunda a Sexta, 9h às 18h
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Função para rastrear cliques no botão de compra
+        function trackPurchaseClick() {
+            console.log('Clique no botão de compra registrado');
+            // Aqui você pode adicionar código de analytics se necessário
+        }
+
+        // Função para rastrear cliques no botão de suporte
+        function trackSupportClick() {
+            console.log('Clique no botão de suporte registrado');
+            // Aqui você pode adicionar código de analytics se necessário
+        }
+
+        // Adicionar efeito de entrada suave
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.container');
+            container.style.opacity = '0';
+            container.style.transform = 'translateY(30px)';
+            
+            setTimeout(() => {
+                container.style.transition = 'all 0.6s ease';
+                container.style.opacity = '1';
+                container.style.transform = 'translateY(0)';
+            }, 100);
+        });
+
+        // Adicionar efeito de hover nos botões para mobile
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('touchstart', function() {
+                this.style.transform = 'translateY(-2px)';
+            });
+            
+            btn.addEventListener('touchend', function() {
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 150);
+            });
+        });
+    </script>
+</body>
+</html>
+

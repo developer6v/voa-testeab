@@ -22,7 +22,6 @@
             loading.style.display = 'block';
             
             try {
-                // Criar FormData para enviar o email como parâmetro
                 const formData = new FormData();
                 formData.append('email', email);
                 
@@ -40,23 +39,19 @@
                 const result = await response.text();
                 const resultTrimmed = result.trim().toLowerCase();
                 
-                console.log('Resposta da API:', result); // Para debug
+                console.log('Resposta da API:', result); 
                 
                 if (resultTrimmed === 'true') {
-                    // Compra encontrada - redirecionar para checkout
-                    // Aguardar um momento para mostrar feedback visual
                     submitBtn.textContent = 'Compra encontrada! Redirecionando...';
                     setTimeout(() => {
                         window.location.href = 'https://pay.hotmart.com/M8281500Q?checkoutMode=10&off=kb6qqz1g&offDiscount=CUPOMVOA'; // Substituir pela URL real do checkout
                     }, 1500);
                 } else if (resultTrimmed === 'false') {
-                    // Compra não encontrada - redirecionar para página de não encontrado
                     submitBtn.textContent = 'Compra não encontrada. Redirecionando...';
                     setTimeout(() => {
-                        window.location.href = 'pagina-nao-encontrado.html'; // Substituir pela página real
+                        window.location.href = 'fabiocostaonline.com/voa/compra-naoencontrada'; 
                     }, 1500);
                 } else {
-                    // Resposta inesperada
                     throw new Error('Resposta inesperada da API: ' + result);
                 }
                 

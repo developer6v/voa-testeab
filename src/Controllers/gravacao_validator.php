@@ -113,11 +113,7 @@ try {
     'grant_type' => 'client_credentials',
     'client_id' => $CLIENT_ID,
     'client_secret' => $CLIENT_SECRET,
-  ],
-  
-    [
-        'Authorization: Basic ' . $acesstoken
-    ]
+  ]
 );
   if ($code !== 200) {
     http_response_code(502);
